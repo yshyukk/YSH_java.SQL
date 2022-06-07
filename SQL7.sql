@@ -10,11 +10,11 @@ WHERE salary > 7000;    --salary가 7000 이상인 데이터
     --GROUP BY절에서는 사용 X
 SELECT *
 FROM employees
-WHERE salary > (SELECT salary           -- 이게 왜 7000??
+WHERE salary > (SELECT salary          		--> 이 서브쿼리의 결과값 = 7000
                         FROM employees
                         WHERE last_name = 'Grant')
-AND hire_date < (SELECT hire_date -- GRANT보다 먼저 입사하고 GRANT보다 월급 많이 받는 사람.
-                         FROM employees
+AND hire_date < (SELECT hire_date		-- GRANT보다 먼저 입사하고 GRANT보다 월급 많이 받는 사람.
+                         FROM employees		--  date는 과거일수록 작아짐. 	
                          WHERE last_name='Grant');
                         
 --Subquery의 기본 사용
