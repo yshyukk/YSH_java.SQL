@@ -94,6 +94,7 @@ FROM employees
 WHERE hire_date > TO_DATE('31/12/99', 'dd/mm/rr');
 
 --TO_NUMBER 함수('문자', 'format')
+
 SELECT employee_id, last_name, salary, hire_date
 FROM employees
 WHERE salary > $8,000; --> 문잔데 왜 ''없지?
@@ -186,10 +187,7 @@ FROM employees;
 
 --NVL2 함수 결과를 CASE 문으로 대체 
 
-SELECT employee_id, last_nam
-
-.
-.e, 
+SELECT employee_id, last_name, 
               salary+salary*NVL(commission_pct,0) as monthly_sal,
               CASE WHEN commission_pct IS NOT NULL THEN 'Y'
                          ELSE 'N' END AS comm_get

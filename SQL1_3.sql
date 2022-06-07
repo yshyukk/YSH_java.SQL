@@ -15,6 +15,7 @@ from dual;
 
 select employee_id, concat(first_name, last_name) as fullname, salary
 from employees;
+
 select employee_id, concat(concat(first_name, ' '), last_name) as fullname, salary
 from employees;
 
@@ -30,7 +31,7 @@ select substr('oracle database', 1,6), substr('oracle database', 8,4)
 from dual;
 
 select substr('oracle database', 1,6), substr('oracle database', 8,4), substr('oracle database', 8)
-from dual; -- 3번째 인수 생략하면 2번째 인수 뒤로 다 출력
+from dual; --> 3번째 인수 생략하면 2번째 인수 뒤로 다 출력
 
 
 select substr('oracle database', 1,6), substr('oracle database', 8,4), substr('oracle database', 8),
@@ -43,7 +44,7 @@ where substr(last_name,-1,1)='s';
 
 select employee_id, last_name, substr(last_name,1,3)
 from employees
-where last_name like '%s';  --윗문장과 같음
+where last_name like '%s';  --> 윗문장과 같음
 
 --length
 select employee_id, last_name, length(last_name)
@@ -51,6 +52,7 @@ from employees; -- 문자함수지만 (=인수가 문자) 결과는 숫자로
 
 select length('oracle database'), length('오라클 데이터베이스')
 from dual;
+
 select lengthb('oracle database'), lengthb('오라클 데이터베이스')
 from dual; -- lengthb : 데이터의 크기 비교
 
@@ -67,6 +69,7 @@ from employees
 where last_name not like '%a%'; --- 위와 같은 결과
 
 --RPAD, LPAD //  L=데이터의 왼쪽을, R=데이터의 오른쪽을 ,PAD= (남는 공간을)채워라
+
 select employee_id, RPAD(last_name,7,'*'), LPAD(salary, 15, '*') 
 from employees;
 
@@ -109,16 +112,16 @@ where LOWER(last_name) ='king'; -- > 소문자로 입력해도 대문자 찾음
 
 --------- <숫자 함수>
 
---ROUND(인수, 자릿수)    자릿수 +값 : 소수점아래/ 생략: 정수로/ -값 : 10의자리로 ===>반올림
+-- ROUND(인수, 자릿수)    자릿수 +값 : 소수점아래/ 생략: 정수로/ -값 : 10의자리로 ===>반올림
 SELECT ROUND(45.923,2), ROUND(45.923), ROUND(45.923,-1)
 FROM   DUAL;
 
 
---TRUNC ===> 버림
+-- TRUNC ===> 버림
 SELECT TRUNC(45.923,2), TRUNC(45.923), TRUNC(45.923,-1)
 FROM   DUAL;
 
---MOD (나눌데이터, 나눌값)===> 나머지 구함
+-- MOD (나눌데이터, 나눌값)===> 나머지 구함
 SELECT last_name, salary, MOD(salary, 5000)
 FROM   employees
 WHERE  job_id = 'SA_REP';

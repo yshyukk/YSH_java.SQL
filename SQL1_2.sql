@@ -3,6 +3,7 @@ select employee_id, last_name, hire_date,
 from employees;
 
 --where 절의 기본 사용법
+
 select employee_id, last_name, hire_date, 
          salary, department_id
 from employees
@@ -53,6 +54,7 @@ from employees
 where hire_date > '97-09-17'; -- >는 그 날짜보다 후 // 날짜는 후로갈수록 커짐.
 
 ---SQL비교연산자( IN/ LIKE/ BETWEEN/ IS NULL)
+
 select employee_id, last_name, hire_date, 
          salary, department_id
 from employees

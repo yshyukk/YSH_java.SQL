@@ -10,13 +10,17 @@ from departments;
 --표현식(expression) : 주로 산술연산(+,-,*,/)
 select employee_id, last_name, salary*12
 from employees;
+
 select employee_id, last_name, salary+100*12, (salary+100)*12
 from employees;
+
 --1. coulmn 또는 표현식 다음에 (as) 원하는 coulmn명 
 --2. 원하는 coulmn명 작성할때 공백X(띄어쓰는 자리에 _사용), 공백은 특수기호 처리됨.
 --    공백을 사용하거나 소문자로 출력하고싶을때 " "로 묶어서 원하는대로 써주기
+
 select employee_id, last_name, salary*12 AS annual_salary --1.
 from employees;
+
 select employee_id, last_name, salary, salary*12  "Annual Salary" --2.
 from employees;
 
@@ -46,6 +50,7 @@ select last_name || q'['s salary : ]' || salary -- '<-- q를 ''붙이고 안에 출력하
 from employees;                                -- 결국 위에서 `갯수맞춘것과 동일.
 
 --DISTINCT: 중복제거= 중복되는 column을 제거
+
 SELECT department_id
 from employees;
 
@@ -64,5 +69,5 @@ select employee_id, last_name, salary, commission_pct, --null은 계산하면 null이 
 from employees;
 
 --테이블구조(열구조) 
-describe employees;
+describe employees;	--desc : 테이블의 정보
 desc departments;
