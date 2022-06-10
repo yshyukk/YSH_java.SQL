@@ -1,0 +1,36 @@
+스키마 
+: 객체를 소유하고 있는 객체 모음 ( USER이름과 혼동하여 사용하기도 함. )
+
+Datatype (ORACLE)
+	<숫자>
+	-NUMBER(p[,s])	- p :NUMBER의 총 갯수 (
+		   		- [EX] NUMBER(6) -> 999999
+				        NUMBER(8,2) -> 999999.99
+				        NUMBER(2,2) -> 1미만의 수 
+	<날짜>
+	-DATE : 고정길이 	- EX] 22/06/10 -> 2022/06/10 00:00:00
+			        	         22/06/10 15:08:10 -> 2022/06/10 15:08:10
+	- DATETIME
+	- TIMESTAMP
+	- TIMESTAMP WITH TIME ZONE
+	- TIMESTAMP WITH LOCAL TIME ZONE
+	- INTERVAL YEAR TO MONTH
+	- INTERVAL DAY TO SECOND
+	
+	<문자>
+	- CHAR (n)	 : 최대 2,000byte 까지의 고정길이인 문자데이터 타입
+		# 고정길이?
+			[EX] CHAR(10)에 'oracle' -> oracle____로 저장
+		# n : 최대길이
+				
+	- VARCHAR2 (n) : 최대 4,000byte 까지의 가변길이인 문자데이터 타입
+			[EX] VARCHAR2  (10)에 'oracle' -> oracle로만 저장.
+
+	<이진>
+	- RAW(n) : 최대 2,000byte 까지의 이진데이터 타입
+
+	***LARGE SIZE Dite ***
+	 - 문자
+	     Long, CLob
+	  - 이진
+	    LONG, RAW, 
