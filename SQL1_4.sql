@@ -1,27 +1,28 @@
---³¯Â¥µ¥ÀÌÅÍ¿¡ TO_CHAR ÇÔ¼ö »ç¿ë
---TO_CHAR·Î ¹Ù²Ù¸é °á°ú´Â ¹®ÀÚ!!!
+--ë‚ ì§œë°ì´í„°ì— TO_CHAR í•¨ìˆ˜ ì‚¬ìš©
+--TO_CHARë¡œ ë°”ê¾¸ë©´ ê²°ê³¼ëŠ” ë¬¸ì!!!
 
 SELECT employee_id, last_name, hire_date
 FROM employees;
 
-SELECT employee_id, last_name, TO_CHAR(hire_date, 'dd-mm-yyyy') --> mm´ë½Å month¸¦ ÀÔ·ÂÇÏ¸é '~¿ù'·Î
-FROM employees; -->> Ãâ·ÂµÇ´Â ³¯Â¥´Â ¹®ÀÚ (³¯Â¥X)
+SELECT employee_id, last_name, TO_CHAR(hire_date, 'dd-mm-yyyy') --> mmëŒ€ì‹  monthë¥¼ ì…ë ¥í•˜ë©´ '~ì›”'ë¡œ
+FROM employees; -->> ì¶œë ¥ë˜ëŠ” ë‚ ì§œëŠ” ë¬¸ì (ë‚ ì§œX)
 
 SELECT employee_id, last_name, 
        TO_CHAR(hire_date, 'yyyy-mm-dd day') AS hire_date,
-       TO_CHAR(hire_date, 'q') AS ºĞ±â,
-       TO_CHAR(hire_date, 'w')||'ÁÖÂ÷' AS ÁÖ¼ö
+       TO_CHAR(hire_date, 'q') AS ë¶„ê¸°,
+       TO_CHAR(hire_date, 'w')||'ì£¼ì°¨' AS ì£¼ìˆ˜
 FROM employees;
 
 SELECT employee_id, last_name, TO_CHAR(hire_date, 'yyyy-mm-dd hh24:mi:ss')
 FROM employees;
 
---³¯Â¥ ¿¬»ê¿¡ ÀÀ¿ë
+--ë‚ ì§œ ì—°ì‚°ì— ì‘ìš©
+--FROM ì ˆì— dualì€ ì¡°ê±´ì‹ì´ë‚˜ ìˆ˜ì‹ë“±ì˜ ê²°ê³¼ë§Œ ë³´ì—¬ì£¼ê¸°ìœ„í•œ ë¹ˆ í…Œì´ë¸” ê°œë….
 
 SELECT TO_CHAR(sysdate, 'yyyy/mm/dd hh24:mi:ss'),
        TO_CHAR(sysdate+3/24,'yyyy/mm/dd hh24:mi:ss'),
        TO_CHAR(sysdate+40/(24*60), 'yyyy/mm/dd hh24:mi:ss')
 FROM dual;
 
-select employee_id, last_name, TO_CHAR(hire_date,'yyyy/mm/dd/ hh24mi:ss') ÀÔ»çÀÏ
+select employee_id, last_name, TO_CHAR(hire_date,'yyyy/mm/dd/ hh24mi:ss') ì…ì‚¬ì¼
          FROM employees;
