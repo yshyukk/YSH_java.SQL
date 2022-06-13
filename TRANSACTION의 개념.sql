@@ -1,24 +1,25 @@
--- <TRNASACTIONÀÇ °³³ä>
--- SESSION : Á¢¼Ó~Á¢¼ÓÇØÁ¦
+-- <<<TRNASACTIONì˜ ê°œë…>>>
+
+-- SESSION : ì ‘ì†~ì ‘ì†í•´ì œ
 -- TRANSACTION : DML ~ COMMIT/ROLLBACK
 
--- Á¢¼Ó (ID/Password) -------------------------< SESSION ½ÃÀÛ >
+-- ì ‘ì† (ID/Password) -------------------------< SESSION ì‹œìž‘ >
 
 --SELECT... 
 
---DML (INSTERT / UPDATE/DELETE)----------<TRANSCATION ½ÃÀÛ >
---DML				   : ³í¸®ÀûÀ¸·Î ¿¬°üµÇ¾î¼­ ÇÑ²¨¹ø¿¡ Ã³¸®ÇØ¾ß ÇÏ´Â DMLÀÇ ¹­À½
+--DML (INSTERT / UPDATE/DELETE)----------<TRANSCATION ì‹œìž‘ >
+--DML				   : ë…¼ë¦¬ì ìœ¼ë¡œ ì—°ê´€ë˜ì–´ì„œ í•œêº¼ë²ˆì— ì²˜ë¦¬í•´ì•¼ í•˜ëŠ” DMLì˜ ë¬¶ìŒ
 --DML
 --DML
---COMMIT/ROLLBACK -----------------------< TRANSCATION Á¾·á >
+--COMMIT/ROLLBACK -----------------------< TRANSCATION ì¢…ë£Œ >
 
---DML-----------------------------------------<TRANSCATION ½ÃÀÛ >
+--DML-----------------------------------------<TRANSCATION ì‹œìž‘ >
 --DML
---SELECTE  : TRANSACTION ½ÇÇàÁß SELECTE¸¦ Çß´Ù°íÇØ¼­ SESSIONÀÌ ½ÃÀÛÇÏ´Â °Ç ¾Æ´Ô 
+--SELECTE  : TRANSACTION ì‹¤í–‰ì¤‘ SELECTEë¥¼ í–ˆë‹¤ê³ í•´ì„œ SESSIONì´ ì‹œìž‘í•˜ëŠ” ê±´ ì•„ë‹˜ 
 --DML
 --DML
---COMMIT/ROLLBACK -----------------------< TRANSCATION Á¾·á >
+--COMMIT/ROLLBACK -----------------------< TRANSCATION ì¢…ë£Œ >
 
---Á¢¼ÓÇØÁ¦ (Tool Á¾·á)------------------------< SESSION Á¾·á >
+--ì ‘ì†í•´ì œ (Tool ì¢…ë£Œ)------------------------< SESSION ì¢…ë£Œ >
 
---ÇÑ SESSION ³»¿¡¼­ ¿©·¯ TRANSACTION ¹ß»ý °¡´É.
+--í•œ SESSION ë‚´ì—ì„œ ì—¬ëŸ¬ TRANSACTION ë°œìƒ ê°€ëŠ¥.
