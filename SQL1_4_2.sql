@@ -1,69 +1,69 @@
--- ¼ıÀÚ, ³¯Â¥ <--> ¹®ÀÚ : º¯È¯ÇÔ¼ö
+-- ìˆ«ì, ë‚ ì§œ <--> ë¬¸ì : ë³€í™˜í•¨ìˆ˜
 
---TO_CHAR(³¯Â¥, 'format')
+--TO_CHAR(ë‚ ì§œ, 'format')
     --format
-        -- ¿¬µµ : yyyy or yy/ rrrr or rr
-        --¿ù : month/ mon(¾à¾î)/ mm(¼ıÀÚ)
-        --ÀÏ : dd(1~31)/ d(¿äÀÏ : 1~7»çÀÌ ¼ıÀÚ)
-        --¿äÀÏ : day/ dy(¾à¾î)
-        --½Ã : hh/ hh24
-        --ºĞ : mi
-        --ÃÊ : ss
-        --¿ÀÀü/¿ÀÈÄ : pm/ am
-        --ÁÖ¼ö : w
-        --ºĞ±â : q
+        -- ì—°ë„ : yyyy or yy/ rrrr or rr
+        --ì›” : month/ mon(ì•½ì–´)/ mm(ìˆ«ì)
+        --ì¼ : dd(1~31)/ d(ìš”ì¼ : 1~7ì‚¬ì´ ìˆ«ì)
+        --ìš”ì¼ : day/ dy(ì•½ì–´)
+        --ì‹œ : hh/ hh24
+        --ë¶„ : mi
+        --ì´ˆ : ss
+        --ì˜¤ì „/ì˜¤í›„ : pm/ am
+        --ì£¼ìˆ˜ : w
+        --ë¶„ê¸° : q
         --
 
---TO_CHAR(¼ıÀÚ, 'format')
+--TO_CHAR(ìˆ«ì, 'format')
     --format
-        -- ÅëÈ­±âÈ£ : $(ºÎµ¿ÅëÈ­)/ L(Áö¿ªÅëÈ­)
-        -- ÀÚ¸´¼ö : 0, 9
-        -- ±¸ºĞ±âÈ£ : ,(Ãµ´ÜÀ§) / .(¼Ò¼öÁ¡)
+        -- í†µí™”ê¸°í˜¸ : $(ë¶€ë™í†µí™”)/ L(ì§€ì—­í†µí™”)
+        -- ìë¦¿ìˆ˜ : 0, 9
+        -- êµ¬ë¶„ê¸°í˜¸ : ,(ì²œë‹¨ìœ„) / .(ì†Œìˆ˜ì )
         
---³¯Â¥µ¥ÀÌÅÍ¿¡ TO_CHAR ÇÔ¼ö »ç¿ë
+--ë‚ ì§œë°ì´í„°ì— TO_CHAR í•¨ìˆ˜ ì‚¬ìš©
 SELECT employee_id, last_name, hire_date
 FROM employees;
 
 SELECT employee_id, last_name, TO_CHAR(hire_date, 'dd-mm-yyyy')
 FROM employees;
 
-SELECT employee_id, last_name, TO_CHAR(hire_date, 'yyyy') -->¼ıÀÚ·Î ³ª¿ÔÁö¸¸ ¹®ÀÚ
+SELECT employee_id, last_name, TO_CHAR(hire_date, 'yyyy') -->ìˆ«ìë¡œ ë‚˜ì™”ì§€ë§Œ ë¬¸ì
 FROM employees;
 
 
 SELECT employee_id, last_name, 
        TO_CHAR(hire_date, 'yyyy-mm-dd day') AS hire_date,
-       TO_CHAR(hire_date, 'q') AS ºĞ±â,
-       TO_CHAR(hire_date, 'w')||'ÁÖÂ÷' AS ÁÖ¼ö
+       TO_CHAR(hire_date, 'q') AS ë¶„ê¸°,
+       TO_CHAR(hire_date, 'w')||'ì£¼ì°¨' AS ì£¼ìˆ˜
 FROM employees;
 
-SELECT employee_id, last_name, TO_CHAR(hire_date, 'yyyy-mm-dd hh24:mi:ss') -- ½Ã°£µ¥ÀÌÅÍ°¡ ¾ø´Â Á¤º¸´Â ¾Ë¾Æ¼­ 0½Ã0ºĞ0ÃÊ·Î
+SELECT employee_id, last_name, TO_CHAR(hire_date, 'yyyy-mm-dd hh24:mi:ss') -- ì‹œê°„ë°ì´í„°ê°€ ì—†ëŠ” ì •ë³´ëŠ” ì•Œì•„ì„œ 0ì‹œ0ë¶„0ì´ˆë¡œ
 FROM employees;
 
---³¯Â¥ ¿¬»ê¿¡ ÀÀ¿ë
+--ë‚ ì§œ ì—°ì‚°ì— ì‘ìš©
 SELECT TO_CHAR(sysdate, 'yyyy/mm/dd hh24:mi:ss'),
        TO_CHAR(sysdate+3/24,'yyyy/mm/dd hh24:mi:ss'),
        TO_CHAR(sysdate+40/(24*60), 'yyyy/mm/dd hh24:mi:ss')
 FROM dual;
 
-SELECT TO_CHAR(sysdate, 'yyyy/mm/dd hh:mi:ss am') -- AMÀÌµç PMÀÌµç »ó°ü ¾øÀ½.
+SELECT TO_CHAR(sysdate, 'yyyy/mm/dd hh:mi:ss am') -- AMì´ë“  PMì´ë“  ìƒê´€ ì—†ìŒ.
 FROM dual;
 
---¼ıÀÚµ¥ÀÌÅÍ¿¡ TO_CHAR »ç¿ëÇÏ±â
+--ìˆ«ìë°ì´í„°ì— TO_CHAR ì‚¬ìš©í•˜ê¸°
 SELECT employee_id, last_name, salary, 
-               TO_CHAR(salary, '$999,999')--> ¿©±â¼­ 9´Â ¼ıÀÚ°¡ ¾Æ´Ï¶ó ÀÚ¸´¼ö¸¦ Ç¥Çö (ÀÚ¸´¼ö°¡ ºÎÁ·ÇÏ¸é ###À¸·Î Ç¥ÇöµÊ)
+               TO_CHAR(salary, '$999,999')--> ì—¬ê¸°ì„œ 9ëŠ” ìˆ«ìê°€ ì•„ë‹ˆë¼ ìë¦¿ìˆ˜ë¥¼ í‘œí˜„ (ìë¦¿ìˆ˜ê°€ ë¶€ì¡±í•˜ë©´ ###ìœ¼ë¡œ í‘œí˜„ë¨)
 FROM employees;
 
 SELECT employee_id, last_name, salary, 
        TO_CHAR(salary, '$999,999.99'), 
-       TO_CHAR(salary, '$099,999.99')--> 0À» ³Ö¾î¼­ ¾Õ¿¡ ºóÀÚ¸®¸¦ Ã¤¿öÁÜ.
+       TO_CHAR(salary, '$099,999.99')--> 0ì„ ë„£ì–´ì„œ ì•ì— ë¹ˆìë¦¬ë¥¼ ì±„ì›Œì¤Œ.
 FROM employees;
 
 SELECT employee_id, last_name, salary, 
        TO_CHAR(salary, 'L999,999')
 FROM employees;
 
-ALTER SESSION SET nls_territory=germany;--> ¼¼¼Ç(Ã¢)À» ¹Ù²Ù´Â ¸í·É¾î  ,
+ALTER SESSION SET nls_territory=germany;--> ì„¸ì…˜(ì°½)ì„ ë°”ê¾¸ëŠ” ëª…ë ¹ì–´  ,
 
 SELECT employee_id, last_name, salary, 
        TO_CHAR(salary, 'L999,999')
@@ -75,7 +75,7 @@ SELECT employee_id, last_name, salary,
        TO_CHAR(salary, 'L999,999')
 FROM employees;
 
---TO_DATE ÇÔ¼ö('¹®ÀÚ', 'format') : ÄÄÇ»ÅÍ°¡ ³¯Â¥·Î ÀÎ½ÄÇÒ ¼ö ÀÖµµ·Ï ÇØÁÖ´Â "ÀÌ°Å ³¯Â¥¾ß"
+--TO_DATE í•¨ìˆ˜('ë¬¸ì', 'format') : ì»´í“¨í„°ê°€ ë‚ ì§œë¡œ ì¸ì‹í•  ìˆ˜ ìˆë„ë¡ í•´ì£¼ëŠ” "ì´ê±° ë‚ ì§œì•¼"
 
 SELECT employee_id, last_name, salary, hire_date
 FROM employees
@@ -93,28 +93,28 @@ SELECT employee_id, last_name, salary, hire_date
 FROM employees
 WHERE hire_date > TO_DATE('31/12/99', 'dd/mm/rr');
 
---TO_NUMBER ÇÔ¼ö('¹®ÀÚ', 'format')
+--TO_NUMBER í•¨ìˆ˜('ë¬¸ì', 'format')
 
 SELECT employee_id, last_name, salary, hire_date
 FROM employees
-WHERE salary > $8,000; --> ¹®ÀÜµ¥ ¿Ö ''¾øÁö?
+WHERE salary > $8,000; --> ë¬¸ì”ë° ì™œ ''ì—†ì§€?
 
 SELECT employee_id, last_name, salary, hire_date
 FROM employees
-WHERE salary > '$8,000'; -- ¼ıÀÚ > ¹®ÀÚ¶ó¼­ ¿À·ù
+WHERE salary > '$8,000'; -- ìˆ«ì > ë¬¸ìë¼ì„œ ì˜¤ë¥˜
 
 SELECT employee_id, last_name, salary, hire_date
 FROM employees
 WHERE salary > TO_NUMBER('$8,000','$9,999');
 
---ÇÔ¼öÁßÃ¸
-
+--í•¨ìˆ˜ì¤‘ì²©
+    --CONCAT : ë¬¸ìì—´ í•©ì¹˜ê¸°,
 SELECT last_name,
               UPPER(CONCAT(SUBSTR (LAST_NAME, 1, 8), '_US'))
 FROM   employees
 WHERE  department_id = 60;
 
---ÀÏ¹İÇÔ¼ö NVL : null°ªÀ» Ãâ·ÂÇÏ´Âµ¿¾È ´Ù¸¥ °ªÀ¸·Î Ä¡È¯
+--ì¼ë°˜í•¨ìˆ˜ NVL : nullê°’ì„ ì¶œë ¥í•˜ëŠ”ë™ì•ˆ ë‹¤ë¥¸ ê°’ìœ¼ë¡œ ì¹˜í™˜
 
 SELECT employee_id, last_name, salary, commission_pct
 FROM employees;
@@ -129,7 +129,7 @@ SELECT employee_id, last_name,
               salary+salary*NVL(commission_pct,0) as monthly_sal
 FROM employees;
 
---ÀÏ¹İÇÔ¼ö NVL2(null°ªÀÖ´Â coulmn, nullÀÌ ÀÖÀ¸¸é Ãâ·Â°ª, nullÀÌ ¾øÀ¸¸é Ãâ·Â°ª)
+--ì¼ë°˜í•¨ìˆ˜ NVL2(nullê°’ìˆëŠ” coulmn, nullì´ ìˆìœ¼ë©´ ì¶œë ¥ê°’, nullì´ ì—†ìœ¼ë©´ ì¶œë ¥ê°’)
 
 SELECT employee_id, last_name, 
               salary+salary*NVL(commission_pct,0) as monthly_sal,
@@ -141,7 +141,7 @@ SELECT last_name,  salary, commission_pct,
 FROM   employees 
 WHERE department_id IN (50, 80);
 
---ÀÏ¹İÇÔ¼ö NULL IF
+--ì¼ë°˜í•¨ìˆ˜ NULL IF
 
 SELECT employee_id, last_name, 
                salary+salary*NVL(commission_pct,0) as monthly_sal,
@@ -154,17 +154,17 @@ SELECT first_name, LENGTH(first_name) "expr1",
              NULLIF(LENGTH(first_name), LENGTH(last_name)) result
 FROM   employees;
 
---ÀÏ¹İÇÔ¼ö COALESCE () : ÀÎ¼ö°ªÀÌ Á¤ÇØÁ®ÀÖÁö ¾ÊÀ½. Ã³À½À¸·Î nullÀÌ ¾Æ´Ñ °ªÀ» Ãâ·Â (Çà¹æÇâÀ¸·Î)
+--ì¼ë°˜í•¨ìˆ˜ COALESCE () : ì¸ìˆ˜ê°’ì´ ì •í•´ì ¸ìˆì§€ ì•ŠìŒ. ì²˜ìŒìœ¼ë¡œ nullì´ ì•„ë‹Œ ê°’ì„ ì¶œë ¥ (í–‰ë°©í–¥ìœ¼ë¡œ)
 
 SELECT employee_id, commission_pct, manager_id,
               COALESCE(commission_pct, manager_id, 1234) AS result
 FROM employees;  
 
-SELECT last_name, employee_id, -- ÀÚÁÖ¾¸
+SELECT last_name, employee_id, -- ìì£¼ì”€
               COALESCE(TO_CHAR(commission_pct),TO_CHAR(manager_id), 'No commission and no manager') 
 FROM employees;
 
---CASE ±¸¹® »ç¿ë     
+--CASE êµ¬ë¬¸ ì‚¬ìš©     
 SELECT last_name, job_id, salary,
               CASE job_id WHEN 'IT_PROG'  THEN  1.10*salary
                                     WHEN 'ST_CLERK' THEN  1.15*salary
@@ -172,11 +172,11 @@ SELECT last_name, job_id, salary,
                                     ELSE      salary END     "REVISED_SALARY"
 FROM   employees;
 
-SELECT last_name, job_id, salary, --ÀÚ¹ÙÀÇ IF¹®
+SELECT last_name, job_id, salary, --ìë°”ì˜ IFë¬¸
               CASE  WHEN job_id = 'IT_PROG'  THEN  1.10*salary
                           WHEN job_id = 'ST_CLERK' THEN  1.15*salary
                           WHEN job_id ='SA_REP'   THEN  1.20*salary
-                          ELSE      salary END     "REVISED_SALARY" --<-:REVISED_SALARY : º°Äª
+                          ELSE      salary END     "REVISED_SALARY" --<-:REVISED_SALARY : ë³„ì¹­
 FROM   employees;
 
 SELECT employee_id, last_name, salary,
@@ -185,7 +185,7 @@ SELECT employee_id, last_name, salary,
                          ELSE 'H' END AS salary_grade
 FROM employees;       
 
---NVL2 ÇÔ¼ö °á°ú¸¦ CASE ¹®À¸·Î ´ëÃ¼ 
+--NVL2 í•¨ìˆ˜ ê²°ê³¼ë¥¼ CASE ë¬¸ìœ¼ë¡œ ëŒ€ì²´ 
 
 SELECT employee_id, last_name, 
               salary+salary*NVL(commission_pct,0) as monthly_sal,
@@ -193,7 +193,7 @@ SELECT employee_id, last_name,
                          ELSE 'N' END AS comm_get
 FROM employees;
 
---DECODE ÇÔ¼ö (¿À¶óÅ¬ Àü¿ë) , »ç¿ëÀß ¾ÈÇÔ. ´ë½Å case¸¦ »ç¿ë 
+--DECODE í•¨ìˆ˜ (ì˜¤ë¼í´ ì „ìš©) , ì‚¬ìš©ì˜ ì•ˆí•¨. ëŒ€ì‹  caseë¥¼ ì‚¬ìš© 
 
 SELECT last_name, job_id, salary,
              DECODE(job_id, 'IT_PROG',  1.10*salary,
