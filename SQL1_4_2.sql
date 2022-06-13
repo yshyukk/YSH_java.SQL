@@ -109,6 +109,8 @@ WHERE salary > TO_NUMBER('$8,000','$9,999');
 
 --함수중첩
     --CONCAT : 문자열 합치기,
+    --SUBSTR : 문자열 자르기(문자단위로)
+    --SUBSTRB : 문자열 자르기 (바이트단위로)
 SELECT last_name,
               UPPER(CONCAT(SUBSTR (LAST_NAME, 1, 8), '_US'))
 FROM   employees
